@@ -1,0 +1,27 @@
+<html>  
+<head>
+   <meta http-equiv="content-type"  content="text/html; charset=UTF-8"/>
+    <title>声明式的widget</title>  
+    <script type="text/javascript">  
+        var djConfig={parseOnLoad:true};  
+    </script>  
+    
+	<script type="text/javascript" src='../jslib/dojo/dojo/dojo.js'></script>
+    <link rel="stylesheet" href="../jslib/dojo/dijit/themes/claro/claro.css">
+<script type="text/javascript">
+dojo.require("dijit.form.Button"); 
+function init() 
+{ 
+var mydiv = document.createElement("div"); 
+mydiv.id = "mydivid"; 
+dojo.body().appendChild(mydiv); 
+var mybutton = new dijit.form.Button({label:"OK"}, dojo.byId("mydivid")); 
+console.debug(mybutton); 
+} 
+dojo.addOnLoad(init); 
+</script>
+</head>  
+<body>      
+    <div >OK1</div>  
+</body> 
+</html>
