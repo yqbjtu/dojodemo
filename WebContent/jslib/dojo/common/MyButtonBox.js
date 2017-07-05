@@ -24,24 +24,24 @@ function(declare,
   return declare("common.MyButtonBox", [contained, widgetBase, _TemplatedMixin], {
        templateString:
             '<div>' +
-            '<div style="height: 30px;">' +
+            '<div style="height: 20px;">' +
                 '<div data-dojo-attach-point="delButtonAttachUp" style="float: left;"></div>' +
             '</div>' +
             '<div class="textBox">' +
                 '<div data-dojo-attach-point="textBoxAttachPoint"></div>' +
             '</div>' +
-            '<div style="height: 30px;">' +
+            '<div style="height: 20px;">' +
                 '<div data-dojo-attach-point="delButtonAttachDown" style="float: left;"></div>' +
             '</div>' +
         '</div>',
 
-     textField: null, // TextBox widget
+    textField: null, // TextBox widget initial value
 
-  postCreate: function() {
+    postCreate: function() {
       this.inherited(arguments);
       var self = this;
       self.createButtonAndBox();
-      
+
       var myTextBox = new TextBox({
           name: "firstname",
           value: "test"
@@ -53,7 +53,7 @@ function(declare,
     createButtonAndBox: function() {
       var self = this;
 
-      var deleteButtonUp = new Button({
+      var delButtonUp = new Button({
           showTitle: true,
           title: "deleteTitleUp",
           label: "Delete",
@@ -61,10 +61,10 @@ function(declare,
               self.deleteFun(self);
           }
       });
-      self.own(deleteButtonUp);
-      deleteButtonUp.placeAt(self.delButtonAttachUp);
+      self.own(delButtonUp);
+      delButtonUp.placeAt(self.delButtonAttachUp);
 
-      var deleteButtonDown = new Button({
+      var delButtonDown = new Button({
           showTitle: true,
           title: "deleteTitleDown",
           label: "DeleteDown",
@@ -72,10 +72,8 @@ function(declare,
               self.deleteFun(self);
           }
       });
-      self.own(deleteButtonDown);
-      deleteButtonDown.placeAt(self.delButtonAttachDown);
-
-
+      self.own(delButtonDown);
+      delButtonDown.placeAt(self.delButtonAttachDown);
     },
 
     deleteFun: function(btn) {
