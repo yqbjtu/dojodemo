@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Custom Calendar Widget</title>
+
+<script data-dojo-config="async: true, parseOnLoad: true" src='../jslib/dojo/dojo/dojo.js'></script>
+<!-- <script type="text/javascript" src='../jslib/myDojoExt/myUtil/customCalendar.js'></script> -->
+
+<style type="text/css">
+	@import "../jslib/dojo/dojo/resources/dojo.css";
+	@import "../jslib/dojo/dijit/themes/claro/claro.css";
+	@import "../css/simple.css";
+</style>
+<script>
+
+require(["myUtil/customCalendar","dojo/_base/connect"], function(myCalendar, connect){    
+	var params = {
+		"bookingWindowMinDate":"10/9/2011",
+		"bookingWindowMaxDate":"10/9/2012",
+		"selectedDate":"8/15/2012",
+		"onValueSelectedPublishIDString":"selectedValueID"
+	};
+	var myTest = myCalendar(params);
+	myTest.placeAt("nodeId", "last");
+	
+	connect.subscribe("selectedValueID", function(date){
+	  //Do some processing 
+	  console.log("I got: ", date);
+	});	
+	
+});
+
+</script>
+
+
+</head>
+<body class="claro">
+<div id="nodeId">
+</div>
+</body>
+</html>

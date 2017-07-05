@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+
+/*General Widget Setup*/
+
+    .AvailabilityCalendars
+    {
+        width: 360px;
+        margin: 8px 0 0 0;
+        float: left;
+    }
+
+    .AvailabilityCalendars .Calendars
+    {
+    	width: 369px;
+        text-align: center;
+        margin-left: 5px;
+    }
+
+    .AvailabilityCalendars .Calendars .CalendarArrow
+    {
+        display: inline-block; 
+        position: relative;
+        top: -67px;
+    }
+
+     .AvailabilityCalendars .Calendars .CalendarArrow .dijitButtonText
+    {
+	    padding: 0px!important;
+    }
+
+     .AvailabilityCalendars .Calendars .CalendarDijit
+    {
+        display: inline-block; 
+        letter-spacing: normal;
+    }
+    
+/*end of widget setup*/
+
+/*This is for the Available date*/
+     .AvailabilityCalendars .Calendars .CalendarDijit .Available .dijitCalendarDateLabel
+    {
+        background-color: #bccedc !important;
+        border: 1px solid #000000 !important;
+    }
+    /*This is to hide days that don't belong to current month*/
+     .AvailabilityCalendars .Calendars .CalendarDijit .hiddenDay .dijitCalendarDateLabel
+    {
+        background-color: #ffffff !important;
+        border-color: #ffffff;
+        color: #ffffff;
+    }
+    /*This is for the disabled date*/
+     .AvailabilityCalendars .Calendars .CalendarDijit .disabled .dijitCalendarDateLabel
+    {
+    	background-color: #9c9c9c;
+    }
+
+    /* this hides the next and previous year */
+     .AvailabilityCalendars .Calendars .CalendarDijit .dijitCalendarPreviousYear, .dijitCalendarNextYear
+    {
+	    padding: 1px 6px;
+        visibility: hidden;
+    }
+
+    /* this hides the next and previous month arrows */
+     .AvailabilityCalendars .Calendars .CalendarDijit .dijitCalendarArrow
+    {
+        visibility: hidden;
+    }
+        /* this hides the arrow pointing down in the month drop down button */
+     .AvailabilityCalendars .Calendars .CalendarDijit .dijitDropDownButton .dijitArrowButtonInner
+    {
+        visibility: hidden;
+    }
+

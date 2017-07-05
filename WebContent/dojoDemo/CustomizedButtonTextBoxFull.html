@@ -1,0 +1,41 @@
+<html>  
+<head>
+  <meta http-equiv="content-type"  content="text/html; charset=UTF-8"/>
+  <title>自定义的buttonBox</title>
+  <script type="text/javascript" src='../jslib/dojo/dojo/dojo.js'></script>
+
+  <script type="text/javascript">  
+    var dojoConfig = {
+    "async": true,
+    "baseUrl": "jslib",
+    "parseOnLoad": true,
+    "isDebug": true
+    };
+  </script>
+
+    <link rel="stylesheet" href="../jslib/dojo/dijit/themes/claro/claro.css">
+    <!-- 1）Dojo的引用位置，需要声明modulePaths，来指定寻址位置（类似于java的CLASSPATH）： -->
+    <!-- <script src="/lib/dojo/dojo/dojo.js" djConfig="isDebug:true,parseOnLoad:true,modulePaths:{image:'/dojo/js/widget/image'}"></script> -->
+
+    <script type="text/javascript">
+        dojo.require("dijit.form.TextBox");
+        dojo.require("dijit.form.Button");
+        dojo.require("common.MyButtonBox");
+    </script>
+</head>
+<body>
+    <div dojotype="dijit.form.Button">OK</div>
+    <br/>
+    <!-- 使用dojotype引用自定义的buttonBox没有生效 -->
+    <div dojotype="common.MyButtonBox">ButtonBox</div>
+
+     <div id="dashboardTree"></div>
+        <script type="text/javascript">
+        require(["common/MyButtonBox"], function(MyButtonBox){
+                  var box = new MyButtonBox({});
+                  box.placeAt("dashboardTree");
+                  box.startup();
+        });
+        </script>
+</body>
+</html>
